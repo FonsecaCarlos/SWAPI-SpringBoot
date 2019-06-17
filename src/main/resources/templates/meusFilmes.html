@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>SWAPI - 2019</title>
+	<link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+
+	<h1 class="titulo">Star Wars API - FILMES</h1>
+	
+	<table class="tabela">
+		<tr>
+			<th>TÍTULO</th>
+			<th>EPISÓDIO</th>
+			<th>DIRETOR</th>
+			<th>PRODUTOR</th>
+			<th>DATA DE LANÇAMENTO</th>
+			<th>OPÇÕES</th>
+		</tr>
+		
+		<tr th:each="filme : ${filmes}">
+			<td th:text="${filme.title}"></td>
+			<td th:text="${filme.episode_id}"></td>
+			<td th:text="${filme.director}"></td>
+			<td th:text="${filme.producer}"></td>
+			<td th:text="${filme.release_date}"></td>
+			<td> <a th:href="@{'/removefilme/' + ${filme.url}}">REMOVER</a> </td>
+		</tr>
+	</table>
+
+	<div class="navegacao">
+		<a th:href="@{'/'}">INÍCIO</a>
+		<a th:href="@{'/filmes'}">TODOS OS FILMES</a>	
+	</div>
+		
+	
+</body>
+</html>

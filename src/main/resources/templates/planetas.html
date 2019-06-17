@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>SWAPI - 2019</title>
+	<link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+
+	<h1 class="titulo">Star Wars API - PLANETAS</h1>
+	
+	<table class="tabela">
+		<tr>
+			<th>NOME</th>
+			<th>ROTAÇÃO</th>
+			<th>ORBITA</th>
+			<th>DIAMETRO</th>
+			<th>CLIMA</th>
+			<!-- <th>GRAVIDADE</th> -->
+			<th>TERRENO</th>
+			<!-- <th>SUPERFÍCIE DE ÁGUA</th> -->
+			<th>POPULAÇÃO</th>
+		</tr>
+		
+		<tr th:each="planeta : ${planetas}">
+			<td th:text="${planeta.name}"></td>
+			<td th:text="${planeta.rotation_period}"></td>
+			<td th:text="${planeta.orbital_period}"></td>
+			<td th:text="${planeta.diameter}"></td>
+			<td th:text="${planeta.climate}"></td>
+			<!-- <td th:text="${planeta.gravity}"></td> -->
+			<td th:text="${planeta.terrain}"></td>
+			<!-- <td th:text="${planeta.surface_water}"></td> -->
+			<td th:text="${planeta.population}"></td>
+		</tr>
+	</table>
+	
+	<div class="navegacao">	
+		<a th:href="@{'/'}">INÍCIO</a>
+		<a th:href="@{'/planetas/'+${previous}}">PÁGINA ANTERIOR</a>
+		<a th:href="@{'/planetas/'+${next}}">PRÓXIMA PÁGINA</a>
+	</div>
+
+</body>
+</html>

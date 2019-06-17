@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>SWAPI - 2019</title>
+	<link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+
+	<h1 class="titulo">Star Wars API - PERSONAGENS</h1>
+	
+	<table class="tabela">
+		<tr>
+			<th>NOME</th>
+			<th>ALTURA</th>
+			<th>MASSA</th>
+			<th>COR DO CABELO</th>
+			<th>COR DA PELE</th>
+			<!-- <th>COR DOS OLHOS</th> -->
+			<th>ANO DE NASCIMENTO</th>
+			<th>SEXO</th>
+		</tr>
+		
+		<tr th:each="personagem : ${personagens}">
+			<td th:text="${personagem.name}"></td>
+			<td th:text="${personagem.height}"></td>
+			<td th:text="${personagem.mass}"></td>
+			<td th:text="${personagem.hair_color}"></td>
+			<td th:text="${personagem.skin_color}"></td>
+			<!-- <td th:text="${personagem.eye_color}"></td> -->
+			<td th:text="${personagem.birth_year}"></td>
+			<td th:text="${personagem.gender}"></td>
+		</tr>
+	</table>
+	
+	<div class="navegacao">
+		<a th:href="@{'/'}">INÍCIO</a>
+		<a th:href="@{'/personagens/'+${previous}}">PÁGINA ANTERIOR</a>
+		<a th:href="@{'/personagens/'+${next}}">PRÓXIMA PÁGINA</a>	
+	</div>
+
+</body>
+</html>

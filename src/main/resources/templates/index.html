@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>SWAPI - 2019</title>
+	<link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+	<h1 class="titulo">Star Wars API</h1>
+	
+	<div class="conteudo">
+		<a th:href="@{'/filmes'}">LISTAR FILMES</a>
+		<a th:href="@{'/meusfilmes'}">MEUS FILMES</a>
+		<a th:href="@{'/personagens/1'}">LISTAR PERSONAGENS</a>
+		<a th:href="@{'/planetas/1'}">LISTAR PLANETAS</a>	
+	</div>
+	
+</body>
+</html>
