@@ -30,6 +30,11 @@ public class SWAPIController {
 	
 	@GetMapping("/filme/{url}")
 	public String salvaFilme(@PathVariable("url") String url) {
+		Filme filmeTest = filmeRepository.findFilmeByUrl(url);
+		
+		if(filmeTest!=null)
+			return "redirect:/meusfilmes";
+
 		API api = new API();
 		
 	    GetRequestRepository repository = new GetRequestRepository(api);
@@ -45,7 +50,7 @@ public class SWAPIController {
         filme.setRelease_date( film.get("release_date").toString() );
         filme.setUrl( url );
         
-	    filmeRepository.save(filme);
+        filmeRepository.save(filme);
 		
 		return "redirect:/meusfilmes";
 	}
